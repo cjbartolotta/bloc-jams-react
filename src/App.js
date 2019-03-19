@@ -8,10 +8,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
-           <Link to='/'>Landing</Link>
-           <Link to='/library'>Library</Link>
-        </nav>
         <header className="App-header">
            <h1>Bloc Jams</h1>
         </header>
