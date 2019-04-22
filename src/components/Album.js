@@ -65,6 +65,7 @@ class Album extends Component {
             </colgroup>
             <tbody>
 <<<<<<< HEAD
+<<<<<<< HEAD
             {
               this.state.album.songs.map((song, index) => {
                 return (
@@ -83,6 +84,8 @@ class Album extends Component {
               })
             }
 =======
+=======
+>>>>>>> checkpoint-1-configurationls
              {
                this.state.album.songs.map((song, index) => {
                  return (
@@ -101,7 +104,10 @@ class Album extends Component {
               }
 
 
+<<<<<<< HEAD
 >>>>>>> checkpoint-6-playback
+=======
+>>>>>>> checkpoint-1-configurationls
             </tbody>
           </table>
       </section>
