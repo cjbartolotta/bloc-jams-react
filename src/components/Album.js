@@ -12,7 +12,8 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      hoveredIndex: -1
     };
 
 
@@ -46,6 +47,14 @@ class Album extends Component {
     }
   }
 
+  handleMouseHover(index) {
+    this.setState.hoveredIndex({index})
+  }
+
+  handleMouseLeave(index) {
+    this.setState.hoveredIndex({-1})
+  }
+
   render() {
     return (
       <section className="album">
@@ -64,34 +73,22 @@ class Album extends Component {
               <col id="song-duration-column" />
             </colgroup>
             <tbody>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            {
-              this.state.album.songs.map((song, index) => {
-                return (
-                  <tr key ={index}>
-                    <td>
-                      {index + 1}
-                    </td>
-                    <td>
-                      {song.title}
-                    </td>
-                    <td>
-                      {song.duration}
-                    </td>
-                  </tr>
-                )
-              })
-            }
-=======
-=======
->>>>>>> checkpoint-1-configurationls
              {
                this.state.album.songs.map((song, index) => {
                  return (
                    <tr className="song" key={index} onClick= {() => this.handleSongClick(song)}>
                      <td>
-                      {index + 1}
+                      <span onMouseEnter= {() => this.handleMouseHover(index)}>
+                        {
+                          if state.hoveredIndex == index {
+                          } else {
+                            
+                          }
+                          // if state.hoveredIndex == index, render span with ionPlay className
+                          // else render index + 1
+                          index + 1
+                        }
+                      </span>
                      </td>
                      <td>
                       {song.title}
@@ -104,10 +101,6 @@ class Album extends Component {
               }
 
 
-<<<<<<< HEAD
->>>>>>> checkpoint-6-playback
-=======
->>>>>>> checkpoint-1-configurationls
             </tbody>
           </table>
       </section>
