@@ -44,7 +44,7 @@ class Album extends Component {
       this.pause()
     } else {
       if (!isSameSong) { this.setSong(song); }
-      this.play(); this.setState.currentlyPlaying;
+      this.play(); this.setState({isCurrentlyPlaying: true});
     }
   }
 
@@ -56,10 +56,10 @@ class Album extends Component {
     this.setState({hoveredIndex: null})
   }
 
-  renderIcon(index) {
-    if (this.state.hoveredIndex === index && !this.state.isPlaying) {
+  renderIcon(index, song) {
+    if ( this.state.hoveredIndex === index && !this.state.isPlaying ) {
       return <span className="icon ion-md-play"></span>;
-    } else if (this.state.isPlaying && this.state.isCurrentlyPlaying)  {
+    } else if ( this.state.currentlyPlaying && this.state.currentSong == song )  {
         return <span className="icon ion-md-pause"></span>;
       } else {
         return (index + 1);
@@ -91,7 +91,7 @@ class Album extends Component {
                  return (
                    <tr className="song" key={index} onClick= {() => this.handleSongClick(song)} onMouseEnter= {() => this.handleMouseHover(index)} onMouseLeave= {() => this.handleMouseLeave(index)}>
                      <td>
-                      {this.renderIcon(index)}
+                      {this.renderIcon(index, song)}
                      </td>
                      <td>
                       {song.title}
