@@ -13,7 +13,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
-      hoveredIndex: -1
+      hoveredIndex: null
     };
 
 
@@ -48,12 +48,25 @@ class Album extends Component {
   }
 
   handleMouseHover(index) {
-    this.setState.hoveredIndex({index})
+    this.setState({hoveredIndex: index})
   }
 
   handleMouseLeave(index) {
-    this.setState.hoveredIndex({-1})
+    this.setState({hoveredIndex: null})
   }
+
+  renderIcon(index) {
+    var song = this.state.currentSong;
+    if (this.state.hoveredIndex === index && !this.state.isPlaying) {
+      return 'play button';
+      } else if (this.state.isPlaying && this.state.currentSong === song) {
+        return <span className="icon ion-play"></span>;
+      } else {
+        return (index + 1);
+      }
+    }
+
+
 
   render() {
     return (
@@ -77,18 +90,8 @@ class Album extends Component {
                this.state.album.songs.map((song, index) => {
                  return (
                    <tr className="song" key={index} onClick= {() => this.handleSongClick(song)}>
-                     <td>
-                      <span onMouseEnter= {() => this.handleMouseHover(index)}>
-                        {
-                          if state.hoveredIndex == index {
-                          } else {
-                            
-                          }
-                          // if state.hoveredIndex == index, render span with ionPlay className
-                          // else render index + 1
-                          index + 1
-                        }
-                      </span>
+                     <td  onMouseEnter= {() => this.handleMouseHover(index)} onMouseLeave= {() => this.handleMouseLeave(index)}>
+                      {this.renderIcon(index)}
                      </td>
                      <td>
                       {song.title}
