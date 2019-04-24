@@ -58,9 +58,9 @@ class Album extends Component {
   renderIcon(index) {
     var song = this.state.currentSong;
     if (this.state.hoveredIndex === index && !this.state.isPlaying) {
-      return 'play button';
+      return <span className="icon ion-md-play"></span>;
       } else if (this.state.isPlaying && this.state.currentSong === song) {
-        return <span className="icon ion-play"></span>;
+        return <span className="icon ion-md-pause"></span>;
       } else {
         return (index + 1);
       }
