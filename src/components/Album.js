@@ -11,10 +11,9 @@ class Album extends Component {
 
     this.state = {
       album: album,
-      currentSong: album.songs[0],
+      currentSong: album.songs[null],
       isPlaying: false,
       hoveredIndex: null,
-      currentlyPlaying: false
     };
 
 
@@ -44,7 +43,7 @@ class Album extends Component {
       this.pause()
     } else {
       if (!isSameSong) { this.setSong(song); }
-      this.play(); this.setState({isCurrentlyPlaying: true});
+      this.play();
     }
   }
 
@@ -59,10 +58,12 @@ class Album extends Component {
   renderIcon(index, song) {
     if ( this.state.hoveredIndex === index && !this.state.isPlaying ) {
       return <span className="icon ion-md-play"></span>;
-    } else if ( this.state.currentlyPlaying && this.state.currentSong == song )  {
+    } else if ( this.state.isPlaying && this.state.currentSong == song )  {
         return <span className="icon ion-md-pause"></span>;
+      } else if ( !this.state.isPlaying && this.state.currentSong == song ) {
+        return <span className="icon ion-md-play"></span>;
       } else {
-        return (index + 1);
+        return (index + 1)
       }
     }
 
