@@ -62,8 +62,10 @@ class Album extends Component {
         return <span className="icon ion-md-pause"></span>;
       } else if ( !this.state.isPlaying && this.state.currentSong == song ) {
         return <span className="icon ion-md-play"></span>;
+      } else if (this.state.hoveredIndex === index && this.state.isPlaying && this.state.currentSong !== song ){
+        return <span className="icon ion-md-play"></span>;
       } else {
-        return (index + 1)
+        return (index +1);
       }
     }
 
