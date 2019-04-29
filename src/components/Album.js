@@ -49,7 +49,7 @@ class Album extends Component {
   }
 
   handleNextClick() {
-    const nextOrStartOver = () => {
+    const nextOrStartOver = (currentIndex) => {
       if ((currentIndex + 1) > this.state.album.songs.length) {
         return 0
       } else {
@@ -57,7 +57,7 @@ class Album extends Component {
       }
     }
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
-    const newIndex = nextOrStartOver;
+    const newIndex = nextOrStartOver(currentIndex);
     const newSong = this.state.album.songs[newIndex];
     this.setSong(newSong);
     this.play();
