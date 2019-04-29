@@ -50,7 +50,7 @@ class Album extends Component {
 
   handleNextClick() {
     const nextOrStartOver = (currentIndex) => {
-      if ((currentIndex + 1) > this.state.album.songs.length) {
+      if ((currentIndex + 1) > this.state.album.songs.length - 1) {
         return 0
       } else {
         return (currentIndex + 1)
