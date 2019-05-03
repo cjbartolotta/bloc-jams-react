@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 class PlayerBar extends Component {
   render() {
     return (
+
+      var minutes = Math.floor(this.props.currentTime / 60);
+      var seconds = this.props.currentTime - minutes * 60;
+
       <section className="player-bar">
         <section id="buttons">
           <button id="previous" onClick={this.props.handlePrevClick}>
@@ -21,7 +25,7 @@ class PlayerBar extends Component {
           <input
             type="range"
             className="seek-bar"
-            value={(this.props.currentTime / this.props.duration) || 0}
+            value={(minutes : seconds / this.props.duration) || 0}
             max="1"
             min="0"
             step="0.01"
@@ -31,7 +35,14 @@ class PlayerBar extends Component {
         </section>
         <section id="volume-control">
           <div className="icon ion-md-volume-low"></div>
-          <input type="range" className="seek-bar" value="80" />
+          <input
+            type="range"
+            className="seek-bar"
+            value={(this.props.currentVolume)}
+            max="1"
+            min="0"
+            step="0.01"
+            onChange= {this.props.handleVolumeChange} />
           <div className="icon ion-md-volume-high"></div>
         </section>
       </section>
