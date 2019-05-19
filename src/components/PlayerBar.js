@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 
 class PlayerBar extends Component {
 
@@ -18,7 +19,7 @@ class PlayerBar extends Component {
           <button id="previous" onClick={this.props.handlePrevClick}>
             <span className="ion-md-skip-backward"></span>
           </button>
-          <button id="play-pause" onClick={this.props.handleSongClick}>
+          <button class= "button" id="play-pause" onClick={this.props.handleSongClick}>
             <span className="ion-md-play"></span>
             <span className="ion-md-pause"></span>
           </button>
