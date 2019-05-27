@@ -9,9 +9,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-           <nav>
-             <Link to='/'>Landing</Link>
-             <Link to='/library'>Library</Link>
+           <nav class="navbar navbar-default">
+             <div class="container-fluid">
+               <ul class="nav navbar-nav">
+                 <li><Link to='/'>Landing</Link></li>
+                 <li><Link to='/library'>Library</Link></li>
+               </ul>
+             </div>
            </nav>
            <header>
              <h1>Bloc Jams</h1>
