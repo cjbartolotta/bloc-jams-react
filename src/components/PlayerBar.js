@@ -7,8 +7,12 @@ class PlayerBar extends Component {
     var minutes = Math.floor(time / 60);
     var seconds = Math.floor(time - minutes * 60);
 
+    if (seconds > 9) {
     return minutes + ":" + seconds;
-    }
+  } else {
+    return minutes + ":0" + seconds;
+  }
+}
 
   render() {
 
