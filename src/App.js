@@ -1,4 +1,3 @@
-import Navbar from 'react-bootstrap/Navbar'
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './App.css';
@@ -10,11 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-           <Navbar bg="light" expand="lg">
-             <Navbar.Brand href="#landing">Bloc Jams</Navbar.Brand>
-
-
-           </Navbar>
+           <nav>
+             <Link to='/'>Landing</Link>
+             <Link to='/library'>Library</Link>
+           </nav>
            <header>
              <h1>Bloc Jams</h1>
            </header>
